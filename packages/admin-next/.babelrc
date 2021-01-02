@@ -3,12 +3,15 @@
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry"
+        "useBuiltIns": "usage",
+        "corejs": {
+          "version": 3
+        }
       }
-    ],
-    "@vue/babel-plugin-jsx"
+    ]
   ],
   "plugins": [
+    "@vue/babel-plugin-jsx",
     ["@babel/proposal-decorators", { "legacy": true }],
     ["@babel/proposal-class-properties", { "loose": true }]
   ]

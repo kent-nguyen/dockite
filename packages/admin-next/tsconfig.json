@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
     "lib": ["esnext", "esnext.asynciterable", "dom"],
@@ -8,19 +8,20 @@
     "allowJs": true,
     "sourceMap": true,
     "strict": true,
-    "noEmit": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"],
+      "~/*": ["./src/*"],
+      "@/*": ["./src/*"],
       "typeorm": ["./types/typeorm-shim.js"],
       "type-graphql": ["./node_modules/type-graphql/dist/browser-shim.ts"],
-      // "element-ui": [".sink.d.ts"]
     },
     "skipLibCheck": true,
-    "types": ["@types/node", "@nuxt/types", "nuxt-i18n"]
+    "types": ["@types/node"],
+    "outDir": "lib"
   },
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist"]
 }

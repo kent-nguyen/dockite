@@ -2,28 +2,30 @@ module.exports = {
   root: true,
   env: {
     browser: true,
+    es6: true,
     node: true,
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
   extends: [
-    'plugin:vue/essential',
-    'plugin:vue/recommended',
-    'plugin:vue/strongly-recommended',
+    'airbnb-base',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/typescript',
     'prettier',
-    'prettier/vue',
     'plugin:prettier/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier', '@typescript-eslint'],
   // add your custom rules here
   rules: {
-    'vue/component-tags-order': [
-      'error',
-      {
-        order: ['template', 'script', 'style'],
-      },
-    ],
+    'no-shadow': 'off',
+
     '@typescript-eslint/explicit-function-return-type': [
       'error',
       {
@@ -41,5 +43,23 @@ module.exports = {
         },
       },
     ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        mjs: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+  },
+  settings: {
+    'import/resolver': 'eslint-import-resolver-webpack',
+    'import/extensions': ['.js', '.mjs', '.jsx', '.ts', '.tsx', '.css', '.scss'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
   },
 };
