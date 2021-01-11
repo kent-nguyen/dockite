@@ -5,6 +5,8 @@ export enum ApplicationErrorCode {
   NOT_AUTHORIZED = 'NOT_AUTHORIZED',
   NETWORK_ERROR = 'NETWORK_ERROR',
   INVALID_STATE = 'INVALID_STATE',
+  FIELD_REGISTERED = 'FIELD_REGISTERED',
+  NO_FIELD_HANDLER = 'NO_FIELD_HANDLER',
 }
 
 export class ApplicationError extends Error {

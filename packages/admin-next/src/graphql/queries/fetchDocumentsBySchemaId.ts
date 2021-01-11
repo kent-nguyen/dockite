@@ -53,6 +53,7 @@ export const FETCH_DOCUMENTS_BY_SCHEMA_ID_QUERY = gql`
         createdAt
         updatedAt
         releaseId
+        schemaId
         schema {
           id
           name

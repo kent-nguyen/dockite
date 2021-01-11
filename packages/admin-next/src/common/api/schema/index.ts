@@ -2,7 +2,9 @@
 import { sortBy } from 'lodash';
 
 import { Schema } from '@dockite/database';
+import { FindManyResult } from '@dockite/types';
 
+import { DOCKITE_ITEMS_PER_PAGE } from '~/common/constants';
 import {
   FetchAllSchemasQueryResponse,
   FetchAllSchemasQueryVariables,
@@ -27,7 +29,9 @@ export const getSchemaById = async (id: string): Promise<Schema> => {
   return result.data.getSchema;
 };
 
-export const fetchAllSchemas = async (): Promise<Schema[]> => {
+export const fetchAllSchemasWithPagination = async (
+  perPage: number = DOCKITE_ITEMS_PER_PAGE,
+): Promise<FindManyResult<Schema>> => {
   const graphql = useGraphQL();
 
   const result = await graphql.executeQuery<
@@ -35,7 +39,20 @@ export const fetchAllSchemas = async (): Promise<Schema[]> => {
     FetchAllSchemasQueryVariables
   >({
     query: FETCH_ALL_SCHEMAS_QUERY,
+    variables: {
+      perPage,
+    },
   });
 
-  return sortBy(result.data.allSchemas.results, 'name');
+  result.data.allSchemas.results = sortBy(result.data.allSchemas.results, 'name');
+
+  return result.data.allSchemas;
+};
+
+export const fetchAllSchemas = async (
+  perPage: number = DOCKITE_ITEMS_PER_PAGE,
+): Promise<Schema[]> => {
+  const result = await fetchAllSchemasWithPagination(perPage);
+
+  return sortBy(result.results, 'name');
 };

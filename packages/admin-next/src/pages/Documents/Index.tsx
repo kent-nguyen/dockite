@@ -94,7 +94,7 @@ export const DocumentsIndexPage = defineComponent(() => {
 
   const getTableFooter = (): JSX.Element => {
     return (
-      <div class="pt-3 flex justify-between items-center w-full">
+      <div class="p-3 flex justify-between items-center w-full">
         <span class="text-sm opacity-75">
           {documents.result.value && getPaginationString(documents.result.value)}
         </span>

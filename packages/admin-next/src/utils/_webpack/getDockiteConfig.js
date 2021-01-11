@@ -29,4 +29,10 @@ const omitSensitiveValues = (key, value) => {
   return value;
 };
 
-module.exports = { getDockiteConfig, omitSensitiveValues };
+const getDockiteFields = () => {
+  const config = getDockiteConfig();
+
+  return config.fields;
+};
+
+module.exports = { getDockiteConfig, getDockiteFields, omitSensitiveValues };

@@ -183,7 +183,7 @@ export const DocumentTableComponent = defineComponent({
         ));
 
       const baseTable = (
-        <>
+        <div>
           <div class="overflow-x-auto">
             <el-table style="width: 100%;" class="w-full" data={props.documents}>
               {getSelectableColumn()}
@@ -238,7 +238,7 @@ export const DocumentTableComponent = defineComponent({
           </div>
 
           {props.getFooter && props.getFooter('results')}
-        </>
+        </div>
       );
 
       if (!props.selectable || !props.selectedItems) {
@@ -246,7 +246,7 @@ export const DocumentTableComponent = defineComponent({
       }
 
       const selectedTable = (
-        <>
+        <div>
           <div class="overflow-x-auto">
             <el-table class="w-full" data={props.selectedItems}>
               {getSelectableColumn()}
@@ -283,7 +283,7 @@ export const DocumentTableComponent = defineComponent({
           </div>
 
           {props.getFooter && props.getFooter('selected')}
-        </>
+        </div>
       );
 
       return (

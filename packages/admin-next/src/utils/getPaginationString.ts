@@ -17,7 +17,7 @@ export const getPaginationString = (paginationDetails: FindManyResult<any>): str
   // or pagination is completely borked
   startingItem = Math.min(startingItem, itemCount);
 
-  const endingItem = startingItem + (itemCount - 1);
+  const endingItem = Math.max(0, startingItem + (itemCount - 1));
 
   return `Displaying documents ${startingItem} to ${endingItem} of ${totalItems}`;
 };

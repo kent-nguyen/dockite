@@ -34,8 +34,6 @@
     "eslint-plugin-vue": "^7.0.0-alpha.0",
     "typescript": "^3.9.5",
     "vue": "^3.0.4",
-    "vue-fragment": "^1.5.1",
-    "vue-property-decorator": "^8.4.2",
     "vuedraggable": "^2.24.0"
   }
 }

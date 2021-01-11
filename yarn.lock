@@ -4274,6 +4274,11 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/codemirror@0.0.56":
+  version "0.0.56"
+  resolved "https://verdaccio.fontis.com.au/@types%2fcodemirror/-/codemirror-0.0.56.tgz#1fcf68df0d0a49791d843dadda7d94891ac88669"
+  integrity sha512-OMtPqg2wFOEcNeVga+m+UXpYJw8ugISPCQOtShdFUho/k91Ms1oWOozoDT1I87Phv6IdwLfMLtIOahh1tO1cJQ==
+
 "@types/connect@*":
   version "3.4.34"
   resolved "https://verdaccio.fontis.com.au/@types%2fconnect/-/connect-3.4.34.tgz#170a40223a6d666006d93ca128af2beb1d9b1901"
@@ -18888,11 +18893,6 @@ vue-eslint-parser@^7.1.0, vue-eslint-parser@^7.3.0:
     esquery "^1.0.1"
     lodash "^4.17.15"
 
-vue-fragment@^1.5.1:
-  version "1.5.1"
-  resolved "https://verdaccio.fontis.com.au/vue-fragment/-/vue-fragment-1.5.1.tgz#44c070d55ed1e9a6c698ef57a5c83f64bb06feeb"
-  integrity sha512-ig6eES6TcMBbANW71ylB+AJgRN+Zksb3f50AxjGpAk6hMzqmeuD80qeh4LJP0jVw2dMBMjgRUfIkrvxygoRgtQ==
-
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://verdaccio.fontis.com.au/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
@@ -18930,7 +18930,7 @@ vue-no-ssr@^1.1.1:
   resolved "https://verdaccio.fontis.com.au/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz#875f3be6fb0ae41568a837f3ac1a80eaa137b998"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
-vue-property-decorator@^8.3.0, vue-property-decorator@^8.4.2:
+vue-property-decorator@^8.3.0:
   version "8.5.1"
   resolved "https://verdaccio.fontis.com.au/vue-property-decorator/-/vue-property-decorator-8.5.1.tgz#571a91cf8d2b507f537d79bf8275af3184572fff"
   integrity sha512-O6OUN2OMsYTGPvgFtXeBU3jPnX5ffQ9V4I1WfxFQ6dqz6cOUbR3Usou7kgFpfiXDvV7dJQSFcJ5yUPgOtPPm1Q==

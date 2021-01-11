@@ -7,7 +7,9 @@ export interface FetchAllSchemasQueryResponse {
   allSchemas: FindManyResult<Schema>;
 }
 
-export type FetchAllSchemasQueryVariables = never;
+export type FetchAllSchemasQueryVariables = {
+  perPage: number;
+};
 
 export const FETCH_ALL_SCHEMAS_QUERY = gql`
   query FetchAllSchemas {

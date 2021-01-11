@@ -4,6 +4,11 @@ import { Document } from '@dockite/database';
 import { FindManyResult } from '@dockite/types';
 
 import {
+  GET_DOCUMENT_BY_ID_QUERY,
+  GetDocumentByIdQueryResponse,
+  GetDocumentByIdQueryVariables,
+} from '~/graphql';
+import {
   FetchAllDocumentsDefaultQueryVariables,
   FetchAllDocumentsQueryResponse,
   FetchAllDocumentsQueryVariables,
@@ -85,4 +90,18 @@ export const fetchAllDocuments = async (payload: FetchAllDocumentsArgs): Promise
   const { results } = await fetchAllDocumentsWithPagination(args);
 
   return results;
+};
+
+export const getDocumentById = async (id: string): Promise<Document> => {
+  const graphql = useGraphQL();
+
+  const result = await graphql.executeQuery<
+    GetDocumentByIdQueryResponse,
+    GetDocumentByIdQueryVariables
+  >({
+    query: GET_DOCUMENT_BY_ID_QUERY,
+    variables: { id },
+  });
+
+  return result.data.getDocument;
 };

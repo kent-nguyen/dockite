@@ -7,8 +7,7 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const { NormalModuleReplacementPlugin, DefinePlugin } = require('webpack');
 const webpack = require('webpack');
-
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isDev =
   String(process.env.NODE_ENV)
@@ -20,7 +19,7 @@ const cwd = process.cwd();
 /**
  * @type {webpack.Configuration}
  */
-module.exports = {
+const config = {
   mode: isDev ? 'development' : 'production',
   entry: {
     main: path.resolve(cwd, './src/ui/index.ts'),
@@ -55,6 +54,11 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               appendTsSuffixTo: [/\.vue$/],
+              compilerOptions: {
+                target: 'esnext',
+                module: 'esnext',
+                moduleResolution: 'node',
+              },
             },
           },
         ],
@@ -69,6 +73,11 @@ module.exports = {
             loader: 'ts-loader',
             options: {
               appendTsSuffixTo: [/\.vue$/],
+              compilerOptions: {
+                target: 'esnext',
+                module: 'esnext',
+                moduleResolution: 'node',
+              },
             },
           },
         ],
@@ -135,7 +144,7 @@ module.exports = {
     ],
   },
   externals: {
-    vue: '$Vue',
+    vue: 'Vue',
   },
   plugins: [
     new VueLoaderPlugin(),
@@ -171,5 +180,21 @@ module.exports = {
     port: 4000,
     compress: true,
     historyApiFallback: true,
+    watchOptions: {
+      ignored: ['**/dockite/fields.ts'],
+    },
+  },
+  watchOptions: {
+    ignored: ['**/dockite/fields.ts'],
   },
 };
+
+if (isDev) {
+  config.plugins.push(
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+    }),
+  );
+}
+
+module.exports = config;

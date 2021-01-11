@@ -6,9 +6,6 @@ import { DockiteConfiguration } from '@dockite/types';
 const dockiteConfig: DockiteConfiguration = DOCKITE_CONFIG;
 
 const config = reactive({
-  backgroundColor: '#2b6cb0',
-  textColor: '#ffffff',
-  activeTextColour: '#eeeeee',
   ...dockiteConfig,
 });
 

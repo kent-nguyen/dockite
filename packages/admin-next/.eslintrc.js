@@ -32,6 +32,7 @@ module.exports = {
         allowExpressions: true,
       },
     ],
+    'import/no-cycle': 'off',
     'import/order': [
       'error',
       {

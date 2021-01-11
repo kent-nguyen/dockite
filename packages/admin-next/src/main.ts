@@ -5,8 +5,13 @@ import './assets/tailwind.css';
 import './assets/element.scss';
 
 import { App } from './App';
+import { bootstrapDockite } from './dockite';
 import { Router } from './router';
 import { defineGlobals } from './utils';
+
+(window as any).Vue = Vue;
+
+bootstrapDockite();
 
 const app = Vue.createApp(App);
 
