@@ -1,4 +1,4 @@
-import { DefineComponent, reactive, ref, Ref } from 'vue';
+import { DefineComponent, reactive, ref, Ref, Plugin } from 'vue';
 
 import { Field, Schema } from '@dockite/database';
 
@@ -67,4 +67,9 @@ export interface UseDockiteHook {
 
 export const useDockite = (): UseDockiteHook => {
   return { fieldManager, hasLoadedFields };
+};
+
+export const DockiteVuePlugin: Plugin = app => {
+  // eslint-disable-next-line no-param-reassign
+  app.config.globalProperties.$dockite = { hasLoadedFields, fieldManager };
 };

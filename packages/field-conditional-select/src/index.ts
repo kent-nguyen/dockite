@@ -8,7 +8,7 @@ import {
   GraphQLString,
 } from 'graphql';
 
-import { ConditionalSelectFieldSettings } from './types';
+import { ConditionalSelectFieldSettings, FIELD_TYPE, defaultOptions } from './types';
 
 const DockiteFieldConditionalSelectType = new GraphQLScalarType({
   ...GraphQLString.toConfig(),
@@ -16,18 +16,14 @@ const DockiteFieldConditionalSelectType = new GraphQLScalarType({
 });
 
 export class DockiteFieldConditionalSelect extends DockiteField {
-  public static type = 'conditional_select';
+  public static type = FIELD_TYPE;
 
   public static title = 'Conditional Select';
 
   public static description =
     'A multiple choice field rendered as a select element that hides or shows fields and groups.';
 
-  public static defaultOptions: ConditionalSelectFieldSettings = {
-    required: false,
-    multiple: false,
-    options: [],
-  };
+  public static defaultOptions: ConditionalSelectFieldSettings = defaultOptions;
 
   public async inputType(): Promise<GraphQLInputType> {
     if (this.schemaField.settings.multiple) {

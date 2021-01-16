@@ -5,7 +5,7 @@ import './assets/tailwind.css';
 import './assets/element.scss';
 
 import { App } from './App';
-import { bootstrapDockite } from './dockite';
+import { bootstrapDockite, DockiteVuePlugin } from './dockite';
 import { Router } from './router';
 import { defineGlobals } from './utils';
 
@@ -21,5 +21,6 @@ defineGlobals(app);
 
 app.use(Router);
 app.use(ElementPlus);
+app.use(DockiteVuePlugin);
 
 app.mount('#app');
